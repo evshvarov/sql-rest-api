@@ -12,8 +12,12 @@
         "service": "iris",
         "internalPort": 52773
       },
-      "active": true
+      "links": {
+        "SQL REST": "http://localhost:52775/swagger-ui/index.html?url=http://localhost:52775/api/mgmnt/v1/USER/spec/sql",
+            }
+
     },
+      
     "sqltools.connections": [
       {
         "namespace": "USER",
@@ -31,3 +35,4 @@
     ]
 
 }
+

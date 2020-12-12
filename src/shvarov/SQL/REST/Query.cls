@@ -1,7 +1,7 @@
-Class dc.Sample.PersonREST Extends Sample.REST.Base
+Class shvarov.SQL.REST.Query Extends %CSP.REST
 {
 
-Parameter Version = "1.0.6";
+Parameter Version = "1.0.0";
 
 XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 {
@@ -9,17 +9,7 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 <!-- Server Info -->
 <Route Url="/" Method="GET" Call="GetInfo" Cors="true"/>
 <!-- Get all records of Person class -->
-<Route Url="/persons/all" Method="GET" Call="GetAllPersons"/>
-<!-- Swagger specs -->
-<Route Url="/_spec" Method="GET" Call="SwaggerSpec" />
-<!-- GET method to return JSON for a given person id-->
-<Route Url="/persons/:id" Method="GET" Call="GetPerson"/>
-<!-- Update a person with id-->
-<Route Url="/persons/:id" Method="PUT" Call="UpdatePerson"/>
-<!-- Delete a person with id-->
-<Route Url="/persons/:id" Method="DELETE" Call="DeletePerson"/>
-<!-- Create a person-->
-<Route Url="/persons/" Method="POST" Call="CreatePerson"/>
+<Route Url="/query" Method="POST" Call="RunSQLQuery"/>
 
 </Routes>
 }
@@ -31,7 +21,18 @@ ClassMethod GetInfo() As %Status
   SET info = {
     "version": (version)
   }
-  RETURN ..%ProcessResult($$$OK, info)
+  RETURN $$$OK
+}
+
+/// Run SQL query
+ClassMethod RunSQLQuery() As %Status
+{
+    set sc = $$$OK
+    Set data=%request.Content.Read()
+    //s obj={}.%FromJSON(data) 
+    s sc=##class(%ZEN.Auxiliary.jsonSQLProvider).%WriteJSONFromSQL(,data)
+
+    return 1
 }
 
 /// Retreive all the records of Sample.Person
@@ -141,7 +142,7 @@ ClassMethod SwaggerSpec() As %Status
   Set swagger.info.title = "InterSystems IRIS REST CRUD demo"
   Set swagger.info.version = "0.1"
   Set swagger.host = "localhost:52773"
-  Return ..%ProcessResult($$$OK, swagger)
+  Return $$$OK
 }
 
 }
