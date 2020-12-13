@@ -14,7 +14,7 @@ Create your repository from template.
 Clone/git pull the repo into any local directory e.g. like it is shown below (here I show all the examples related to this repository, but I assume you have your own derived from the template):
 
 ```
-$ git clone git@github.com:evsharov/sql2json-rest-api.git
+$ git clone git@github.com:evsharov/sql-rest-api.git
 ```
 
 Open the terminal in this directory and run:
