@@ -1,7 +1,5 @@
 ## sql2json-rest-api
-The app which installs a /sql web app which accepts SQL query with POST request and returns the result in JSON.
-## Prerequisites
-Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
+The app  installs a /sql REST API web app which accepts SQL query with POST request on /sql/query endpoint and returns the result in JSON.
 
 ## Installation with ZPM
 
