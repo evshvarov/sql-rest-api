@@ -3,7 +3,8 @@
   <Document name="sql-rest.ZPM">
     <Module>
       <Name>sql-rest</Name>
-      <Version>1.1.0</Version>
+      <Version>1.1.1</Version>
+      <Description>Simple REST API web app which accepts SQL and returns the result in JSON</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="shvarov.SQL.PKG"/>
