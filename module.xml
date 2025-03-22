@@ -14,10 +14,10 @@
           <Version>1.*.*</Version>
         </ModuleReference>
       </Dependencies>
-       <CSPApplication 
+       <WebApplication 
         Url="/sql"
         DispatchClass="shvarov.SQL.REST.Query"
-        MatchRoles=":{$dbrole}"
+        MatchRoles=":{$globalsDbRole}"
         PasswordAuthEnabled="1"
         UnauthenticatedEnabled="0"
         Recurse="1"
